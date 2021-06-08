@@ -1,0 +1,83 @@
+<%- include ('partials/header.ejs') %> 
+
+<div class="container">
+ 
+    <div class="row">
+      <div class="col-md-8">
+        <div class="bg-white text-dark">
+          <br>
+          <p class="h1 d-flex justify-content-center">My Cart (<%= currentUser.cart.length %> )</p>
+          <hr class="border border-secondary">
+          <% if(!currentUser.cart.length) {%>
+            <h1 class="text-danger display-4 text-center">Your Cart is Empty!!!</h1>
+          <% } else{ %>
+          <% currentUser.cart.forEach((product)=>{ %> 
+            
+            <div class="row bg m-5">
+                <div class="col-md-5 mr-2">
+                    <img class="img-thumbnail" src="<%= product.id.image %> " alt="" height="300px" width="180px">
+                </div>
+                <div class="col-md-6">
+                    <h3><%= product.id.name %> </h3>
+                    <h5 ><%= product.id.title %> </h5>
+                    <% if(!product.id.quantity) {%> 
+                      <h2>Out Of Stock</h2> <br>
+                    <% } else {%>
+                      <h2> <%= product.id.price %></h2>
+                      <% price = price + product.id.price  %> 
+                     
+                    <% }  %>  
+
+                    <% var quant = product.quantity %>
+                    <form method="POST">
+                      <a href="/cart/dec/<%= product._id %>?_method=PUT" class="btn btn-xs btn-light">-</a> 
+                      <input type="text" class="w-25 text-center" value="<%= product.quantity %>" >
+                      <a href="/cart/inc/<%= product._id %>?_method=PUT" class="btn btn-xs btn-light">+</a> 
+                    </form>
+                    <br><br>
+                    
+
+                    <!-- <a href="/buy/ product.id._id %> "> <button class="btn  btn-lg btn-primary mr-4"><i class="fa fa-shopping-cart  text-white"></i> Buy Now</button></a>
+                     -->
+                    <a href="/product/<%= product._id %>" class="btn btn-lg btn-info mr-4">View Product</a>
+                    <a href="/cart/remove/<%= product._id %>"> <button class="btn btn-lg btn-danger" href=""><i class="fa fa-trash  text-white"></i> Remove</button></a> 
+                </div>
+            </div>
+            <hr class="border border-secondary">
+          <% })}; %>
+  
+        </div>
+      </div>
+      <% if(currentUser.cart.length) {%>
+      <div class="col-md-4 bg-white text-dark h-25 sticky-top">
+        <p class="h1 d-flex justify-content-center text-primary">Price Details</p>
+        <hr>
+        
+        <% var price = 0; %>
+        <% currentUser.cart.forEach((product)=>{ %>   
+          <% price = price + product.id.price %> 
+
+        <%})  %> 
+        <div class="d-flex justify-content-between">
+          <p class="h3 "> Price</p><p class="h3 "><%= price %> </p>
+          
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between">
+          <p class="h3 ">Delivery</p><p class="h3 text-danger">30</p>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between">
+          <p class="h3 ">Total</p><p class="h3 text-success"><%= price + 30 %> </p>
+        </div>  <br>
+
+        <div class="d-flex justify-content-end">
+          <a href="/payment"> <button class="btn btn-lg btn-success" ><i class=" text-white"></i> Place Order</button></a> 
+        </div> 
+
+      </div>
+    <% }%>
+    </div>
+  </div>
+
+<%- include ('partials/footer.ejs') %> 

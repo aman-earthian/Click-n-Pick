@@ -1,0 +1,37 @@
+<%- include ('partials/header.ejs') %> 
+
+  <div class="container">
+    <h1 class="brand"><span>Welcome User </span> Sign-up</h1>
+    <div class="wrapper animated bounceInLeft">
+      <div class="company-info">
+        <h3>Panda Enterprises</h3>
+        <ul>
+          <li><i class="fa fa-road"></i> NIT KKR</li>
+          <li><i class="fa fa-phone"></i> (+91) 9358668593</li>
+          <li><i class="fa fa-envelope"></i> test@panda.com</li>
+        </ul>
+      </div>
+      <div class="contact">
+        <!-- {{msg}} -->
+        <form method="POST" action="verify">
+          <p>
+            <label>Enter otp</label>
+            <input type="text" name="otp" required>
+          </p>
+          
+          <p class="full">
+            <button type="submit">Submit</button>
+          </p>
+
+        </form>
+        <br>
+        <form method="POST" action="resend">
+          <p class="full">
+            <button type="submit">resend otp</button>
+          </p>
+          
+      </div>
+    </div>
+  </div>
+
+<%- include ('partials/footer.ejs') %> 

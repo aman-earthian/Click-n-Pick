@@ -1,0 +1,64 @@
+<%- include ('partials/header.ejs') %> 
+
+
+<section class="container-fluid">
+<div class="bg-info text-white">
+    <div class="row">
+        <div class="col-md-3"><img src="<%= products[0].image %>" height="200" width="300" alt="image"></div>
+        <div class="col-md-6"><h1 class="display-1 text-center"> <%= products[0].category %></h1></div>
+        <div class="col-md-3 mr-0"><img src="<%= products[1].image %>" height="200" width="350" alt="image"></div>
+    </div>
+</div>
+    <div class="row mt-5">
+        <div class="col-md-2">
+            <h1 class="text-center text-info">CATAGORIES</h1>   
+            <div class="list-group form sticky-top">
+                <a href="" class="list-group-item text-white bg-info">MOBILES</a>
+                <a href="" class="list-group-item text-info">LAPTOPS</a>
+                <a href="" class="list-group-item text-info">TELEVISION</a>
+                <a href="" class="list-group-item text-info">WASHING MACHINES</a>
+                <a href="" class="list-group-item text-info">KITCHEN APPLIANCES</a>
+                <a href="" class="list-group-item text-info">KITCHEN STORAGE</a>
+                <a href="" class="list-group-item text-info">MEN CLOTHING</a>
+                <a href="" class="list-group-item text-info">WOMEN CLOTHING</a>
+                <a href="" class="list-group-item text-info">KIDS CLOTHING</a>
+                <a href="" class="list-group-item text-info">SPORTS</a>
+                <a href="" class="list-group-item text-info">BOOKS</a>
+                <a href="" class="list-group-item text-info">MORE     >></a>
+            </div>
+        </div>
+        <div class="col-md-9 ml-5">
+            <h1 class="text-center text-info display-4">CATALOGS</h1>
+            
+        <div class="row">
+            <% products.forEach((product)=>{ %>
+             <div class="col-md-3 mt-5">
+                 <div class="card">
+                     <img class="card-img-top" src="<%= product.image %>" height="200" alt="Card image cap">
+                     <div class="card-body">
+                     <h6><%= product.title %></h6>
+                     <p class="card-text"></p>
+                     <h2>Rs. <%= product.price %></h2>
+                     <div class="d-flex justify-content-around">
+                        <a href="/product/<%= product._id %>" class="btn btn-info ml-4">View Product</a> &nbsp;
+                     <% if(currentUser){ %>
+                        <% if(currentUser.isAdmin){ %>
+                            
+                                <a href="/product/<%= product._id %>/update" class="mr-2"><i class="fa fa-pencil-square-o fa-2x  text-dark" aria-hidden="true"></i></a><a href="/product/<%= product._id %>/remove" ><i class="fa fa-trash fa-2x  text-dark" aria-hidden="true"></i></a>
+                            
+                        <% } %> 
+                    <% } %> 
+                     
+                    </div> 
+                    </div>
+                     </div>
+             </div>
+             <% }); %>
+         </div>
+        </div>
+    </div>
+
+</section><br><br>
+
+    
+<%- include ('partials/footer.ejs') %> 

@@ -1,0 +1,109 @@
+<%- include ('partials/header'); -%>
+
+    <% if(typeof product != 'undefined'){ %>
+        <div class="container w-50 arpit">
+            <h1 class="text-center text-success display-3">Update Products</h1><hr>
+        <form action="/product/<%= product._id %>?_method=PUT" method="POST" class="p-1">
+            <div class="form-group">
+                <select class="form-control" name="product[category]" required>
+                    <option value="<%= product.category %>"> <%= product.category %> </option>
+                    
+                  </select>  
+            </div>
+           
+            <div class="form-group">
+                <input class="form-control" type="text" value="<%= product.name %> " name="product[name]" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" value="<%= product.title %> " name="product[title]" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number"  name="product[price]" value="<%=product.price%>" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" value="<%=product.image%>" name="product[image]" required>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text"  name="product[detail1]" rows="5" cols="20" required> <%= product.detail1 %></textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text" name="product[detail2]" rows="5" cols="20" required> <%= product.detail2 %> </textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text"  name="product[detail3]" rows="5" cols="20" required><%= product.detail3 %></textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text" name="product[detail4]" rows="5" cols="20" required> <%= product.detail4 %></textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text"  name="product[detail5]" rows="5" cols="20" required> <%= product.detail5 %></textarea>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number"  name="product[quantity]" value="<%= product.quantity %>" min="0" max="1000" required>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-outline-success btn-lg btn-block">Submit</button>
+            </div>
+        </form>
+        </div><br>
+    <% } else { %>
+        <div class="container w-50 arpit">
+            <h1 class="text-center text-success display-3">Add Products</h1><hr>
+        <form action="/home" method="POST" class="p-1">
+            <div class="form-group">
+                <select class="form-control" name="product[category]" required>
+                    <option value="">Select Category</option>
+                    <option value="Mobile">Mobile</option>
+                    <option value="Laptop">Laptop</option>
+                    <option value="Television">Television</option>
+                    <option value="Washing Machine">Washing Machine</option>
+                    <option value="Kitchen Storage">Kitchen Storage</option>
+                    <option value="Kitchen Appliances">Kitchen Appliances</option>
+                    <option value="Men">Men</option>
+                    <option value="Women">Women</option>
+                    <option value="Kids">Kids</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Books">Books</option>
+                  </select>  
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Product Name" name="product[name]" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Product Title" name="product[title]" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" placeholder="Product Price" name="product[price]" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Product Image" name="product[image]" required>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text" placeholder="Product Detail 1" name="product[detail1]" rows="5" cols="20" required></textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text" placeholder="Product Detail 2" name="product[detail2]" rows="5" cols="20" required></textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text" placeholder="Product Detail 3" name="product[detail3]" rows="5" cols="20" required></textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text" placeholder="Product Detail 4" name="product[detail4]" rows="5" cols="20" required></textarea>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" type="text" placeholder="Product Detail 5" name="product[detail5]" rows="5" cols="20" required></textarea>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="number" placeholder="Product Quantity" name="product[quantity]" min="1" max="1000" required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-outline-success btn-lg btn-block">Submit</button>
+            </div>
+        </form>
+        </div><br>
+    <% } %> 
+
+
+
+<%- include ('partials/footer'); -%>

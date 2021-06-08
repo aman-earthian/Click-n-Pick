@@ -1,0 +1,41 @@
+<%- include ('partials/header.ejs') %> 
+<section class="mt-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-lg-4 d-none d-lg-inline">
+                <a href="#"><img src="img.svg" width="500px" height="500px"></a>
+            </div>
+            <div class="col-md-12 col-lg-1 d-none d-xl-block line">
+
+            </div>
+            <div class="container col-md-7 col-lg-4 form">
+                <h1 class="text-center text-primary display-2">LOGIN</h1><hr>
+                <form action="/login" method="POST">
+                    <div class="form-group">
+                        <label>USERNAME</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                              </div>          
+                        <input class="form-control" id="lab" type="text" placeholder="Enter your emailId" name="username" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>PASSWORD</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                            </div>
+                            <input class="form-control" id="lab" type="password" placeholder="Type Password" name="password" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-lg btn-block"><i class="fa fa-sign-in"></i>&nbsp;&nbsp;LOGIN</button>
+                    </div>
+                </form><br>
+                <p class="lead text-center">Don't have an account ? <a href="/register">SIGN UP HERE</a></p>
+            </div>
+        </div>
+    </div><br><br>
+    
+<%- include ('partials/footer.ejs') %> 

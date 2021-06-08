@@ -1,0 +1,45 @@
+<%- include ('partials/header.ejs') %> 
+
+
+<div class="container">
+
+    <hr class="border border-secondary">
+        <p class="h1 d-flex justify-content-center">Order Summary</p>
+    <hr class="border border-secondary"><br>
+
+    <% if(!currentUser.order.length) {%>
+        <h1 class="text-danger display-4 text-center">Your haven't ordered anything!!!</h1>
+        <hr><br><br>
+        <h1 class="text-info display-5 text-center">To see amazing deals and products browse through our catalogue</h1>
+        <div class="d-flex justify-content-center">
+            <a href="/home"><button class="btn btn-lg btn-success p-2 pl-5 pr-5">Browse</button></a>
+        </div>
+    <% } else{ %>
+        <% currentUser.order.forEach((product) => { %>
+        <%= product._id.title %> 
+        <div class="row d-flex bg-white text-dark h-25">
+
+            <div class=" col-md-2 ">
+                <img class="img-thumbnail" src="<%= product.image %> " alt="">
+            </div>
+            <div class=" col-md-4">
+                <p><%= product.name %> </p>
+                <p ><%= product.title %> </p>
+            </div>     
+
+            <div class="col-md-2 text-success">
+                <p>Rs. <%= product.price %> </p>
+            </div>
+            <div class="col-md-4">
+                <h5>Delivered on Dec25</h5>
+                <br>
+                <h4 class="text-info">Rate and Review Product</h4>
+            </div>
+        </div><br><hr>
+        <% }); %> 
+    <% } %> 
+</div><br><br>
+
+<%- include ('partials/footer.ejs') %> 
+
+

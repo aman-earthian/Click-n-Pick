@@ -1,0 +1,47 @@
+<%- include ('partials/header.ejs') %> 
+
+<section>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <img src="<%= currentUser.profile %> " height="200" width="200" style="border-radius: 50%;">
+        </div>
+        <div class="col-md-6">
+            <h1 class="display-4">Welcome, <%= currentUser.firstname %> </h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="/cart" class="btn btn-block btn-lg btn-warning text-white"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;VIEW CART</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="/orders" class="btn btn-block btn-lg btn-danger text-white"><i class="fa fa-file-text" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;MY ORDERS</a>
+                </div>
+                </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="d-flex justify-content-around">
+            <h1 class="text-center ml-5">Personal Information</h1>
+            <a href="/editprofile/profile"><i class="fa fa-pencil-square-o fa-2x text-dark"></i></a>
+        </div>
+            <table class="table table-hover table-striped">
+            <tr>
+                <th>EMAIL ADDRESS</th><td></td><td></td>
+                <td><%= currentUser.username %> </td>
+            </tr>
+            <tr>
+                <th>MOBILE NUMBER</th><td></td><td></td>
+                <td><%= currentUser.mobile %> </td>
+            </tr>
+            <tr>
+                <th>ADDRESS</th><td></td><td></td>
+                <td><%= currentUser.address %> </td>
+            </tr>
+
+        </table>
+    </div>
+
+
+</section><br><br>
+
+<%- include ('partials/header.ejs') %> 

@@ -1,0 +1,43 @@
+<%- include ('partials/header') %> 
+<% var d = new Date(); %>
+<% var m = d.getMonth(); %>
+<% var y = d.getFullYear(); %>
+<div class="container w-50 p-3 bg-light" style="border: 2px solid gray;">
+    <!-- <div class="page-header text-center">
+        <h1>Credit Card Payment Gateway</h1>
+    </div> -->
+    <!-- Credit Card Payment Form - START -->
+    <div class="container">
+        <h1 class="text-center">ONLINE PAYMENT DETAILS</h1>
+        <div class="row">
+            <div class="col-md-3"><img class="img-responsive images" width="150" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Mastercard-Curved.png"></div>
+            <div class="col-md-3"><img class="img-responsive images" width="150" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Discover-Curved.png"></div>
+            <div class="col-md-3"><img class="img-responsive images" width="150" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Paypal-Curved.png"> </div>
+            <div class="col-md-3"><img class="img-responsive images" width="150" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/American-Express-Curved.png"> </div>
+        </div>
+    </div><hr class="bg-secondary">
+
+    <div>
+        <div class="bg-white">
+            <form action="/send" method="POST">
+                        <div class="form-group"> <label>CARD NUMBER</label>
+                            <div class="input-group"> <input type="text" class="form-control" placeholder="VALID CARD NUMBER" pattern="[0-9]{16}" title="Must Contains 16 digits number" minlength="16" maxlength="16" required /> <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-credit-card"></i></span></div></div>
+                        </div>
+                <div class="form-row">
+                    <div class="col-md-7">
+                        <div class="form-group"> <label><span class="hidden-sm">EXPIRY</span> DATE</label> <input type="text" onfocus="(this.type='month')" placeholder="YYYY / MM" min="2020-08" max="2050-12" class="form-control" /> </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group"> <label>CV CODE</label> <input type="password" pattern="[0-9]{3}" title="Must be Numeric of length 3" class="form-control" placeholder="C V C" minlength="3" maxlength="3" required/> </div>
+                    </div>
+                </div>
+                <div class="form-group"> <label>CARD OWNER</label> <input type="text" class="form-control" pattern="[A-Za-z]{3,}" title="Must be Uppercase Alphabet" placeholder="CARD OWNER NAME" /> </div>   
+                <hr class="bg-secondary">
+                <div class="bg-light">
+                    <button class="btn btn-success btn-lg btn-block">CONFIRM PAYMENT</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<%- include ('partials/header') %> 
